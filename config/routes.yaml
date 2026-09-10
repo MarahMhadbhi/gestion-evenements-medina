@@ -1,5 +1,263 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+#gestion des evenements     
+    
+app_event_index:
+    path: /event
+    controller: App\Controller\EventController::index
+    methods: GET
+
+app_event_new:
+    path: /event/new
+    controller: App\Controller\EventController::new
+    methods: [GET, POST]
+
+app_event_edit:
+     path: /event/{id}/edit
+     controller: App\Controller\EventController::edit
+     methods: [GET, POST]
+
+app_event_delete:
+     path: /event/{id}
+     controller: App\Controller\EventController::delete
+     methods: [GET, POST]
+
+app_agent_event_index:
+     path: /agent/event
+     controller: App\Controller\EventAgentController::indexagent
+     methods: GET
+
+# gestion comptes des agents
+app_user_index:
+    path: /admin/user
+    controller: App\Controller\UserController::index
+    methods: GET
+
+app_user_new:
+    path: /admin/user/new
+    controller: App\Controller\UserController::new
+    methods: [GET, POST]
+
+app_user_show:
+    path: /admin/user/{id}
+    controller: App\Controller\UserController::show
+    methods: GET
+
+app_user_edit:
+    path: /admin/user/{id}/edit
+    controller: App\Controller\UserController::edit
+    methods: [GET, POST]
+
+app_user_delete:
+    path: /admin/user/{id}
+    controller: App\Controller\UserController::delete
+    methods: POST
+
+    
+#Gestion des inscriptions
+app_inscription_index:
+    path: /admin/inscription
+    controller: App\Controller\InscriptionController::index
+    methods: GET
+
+app_inscription_new:
+    path: /admin/inscription/new
+    controller: App\Controller\InscriptionController::new
+    methods: [GET, POST]
+
+app_inscription_show:
+    path: /admin/inscription/{id}
+    controller: App\Controller\InscriptionController::show
+    methods: GET
+
+app_inscription_edit:
+    path: /admin/inscription/{id}/edit
+    controller: App\Controller\InscriptionController::edit
+    methods: [GET, POST]
+
+app_inscription_delete:
+    path: /admin/inscription/{id}
+    controller: App\Controller\InscriptionController::delete
+    methods: POST
+
+# Gestion des inscriptions cote Agent 
+agent_inscription_index:
+    path: /agent/inscription
+    controller: App\Controller\AgentInscriptionController::index
+    methods: GET
+
+agent_inscription_new:
+    path: /agent/inscription/new
+    controller: App\Controller\AgentInscriptionController::new
+    methods:  [GET, POST]
+
+agent_inscription_show:
+    path: /agent/inscription/{id}
+    controller: App\Controller\AgentInscriptionController::show
+    methods:  GET
+
+agent_inscription_edit:
+    path:  /agent/inscription/{id}/edit
+    controller: App\Controller\AgentInscriptionController::edit
+    methods: [GET, POST]
+
+agent_inscription_delete:
+    path: /agent/inscription/{id}
+    controller: App\Controller\AgentInscriptionController::delete
+    methods: POST
+
+#Gestion badge
+
+agent_inscription_badge:
+    path: /agent/inscription/{id}/badge
+    controller: App\Controller\AgentInscriptionController::badge
+    methods: [GET, POST]
+
+admin_inscription_badge:
+    path: /admin/inscription/{id}/badge
+    controller: App\Controller\InscriptionController::badge
+    methods: [GET, POST]
+
+
+#DashboardAdmin
+app_admin_dashboard:
+    path: /admin
+    controller: App\Controller\DashboardAdminController::dashboard
+    methods: [GET, POST]
+app_admin_event_index:
+    path: /admin/events
+    controller:  App\Controller\DashboardAdminController::eventRedirect
+    methods: [GET, POST]
+app_admin_user_index:
+    path: /admin/users
+    controller:  App\Controller\DashboardAdminController::userRedirect
+    methods: [GET, POST]
+app_admin_inscription_index:
+    path: /admin/inscriptions
+    controller:  App\Controller\DashboardAdminController::inscriptionRedirect
+    methods: [GET, POST]    
+app_admin_logout:
+    path: /admin/logout
+    controller:  App\Controller\DashboardAdminController::logout
+    methods: [GET, POST] 
+
+
+#DashboardAgent
+app_agent_dashboard: 
+    path: /agent
+    controller: App\Controller\DashboardAgentController::dashboard
+    methods: [GET, POST]
+    
+app_agent_dashboard_index:
+    path: /agent/events
+    controller:  App\Controller\\DashboardAgentController::eventRedirect
+    methods: [GET, POST]
+
+app_agent_inscription_index:
+    path: /agent/inscriptions
+    controller:  App\Controller\\DashboardAgentController::inscriptionRedirect
+    methods: [GET, POST] 
+
+app_agent_logout:
+    path: /agent/logout
+    controller:  App\Controller\\DashboardAgentController::logout
+    methods: [GET, POST] 
+
+
+
+
+
+
+
+home:
+    path: /home
+    controller: App\Controller\HomeController::index
+    methods: GET
+   
+#Login
+app_login:
+    path: /login
+    controller: App\Controller\LoginController::login
+    methods: [GET, POST]
+app_logout:
+    path: /logout
+    controller: App\Controller\LoginController::void
+    methods: [GET, POST]
+app_dashboard_redirect:
+    path: /dashboard_redirect
+    controller: App\Controller\LoginController::dashboardRedirect
+    methods: [GET, POST]
+app_forgot_password:
+    path: /forgot-password
+    controller: App\Controller\LoginController::forgotPassword
+    methods: [GET, POST]
+
+
+#DashboardResponsable
+app_responsable_dashboard:
+    path: /responsable
+    controller: App\Controller\ResponsableDashboardController::dashboard
+    methods: [GET, POST]
+
+app_responsable_event_index:
+    path: /responsable/events
+    controller: App\Controller\ResponsableDashboardController::eventRedirect
+    methods: [GET, POST]
+
+app_respo_inscription_index:
+    path: /responsable/inscriptionS
+    controller: App\Controller\ResponsableDashboardController::inscriptionRedirect
+    methods: [GET, POST]
+    
+app_responsable_logout:
+    path: responsable/logout
+    controller: App\Controller\ResponsableDashboardController::logout
+    methods: [GET, POST]
+
+
+#REPONSABLE EVENEMENT
+app_respo_event_index:
+    path: responsable/event
+    controller: App\Controller\ResponsableEventController::index
+    methods: [GET, POST]
+
+responsable_event_new:
+    path: responsable/event/new
+    controller: App\Controller\ResponsableEventController::new
+    methods: [GET, POST]
+
+responsable_event_edit:
+    path: responsable/event/{id}/edit
+    controller: App\Controller\ResponsableEventController::edit
+    methods: [GET, POST]
+
+responsable_event_delete:
+    path: responsable/event/{id}
+    controller: App\Controller\ResponsableEventController::delete
+    methods: [GET, POST]
+
+#Responsable inscription 
+responsable_inscription_index:
+    path: /responsable/inscription
+    controller: App\Controller\ResponsableInscriptionController::index
+    methods: [GET, POST]
+responsable_inscription_new:
+    path: /responsable/inscription/new
+    controller: App\Controller\ResponsableInscriptionController::new
+    methods: [GET, POST]
+
+responsable_inscription_edit:
+    path: /responsable/inscription/{id}/edit
+    controller: App\Controller\ResponsableInscriptionController::edit
+    methods: [GET, POST]
+responsable_inscription_delete:
+    path: /responsable/inscription/{id}
+    controller: App\Controller\ResponsableInscriptionController::delete
+    methods: [GET, POST]
+responsable_inscription_badge:
+    path: /responsable/inscription/{id}/badge
+    controller: App\Controller\ResponsableInscriptionController::badge
+    methods: [GET, POST]
+app_inscription_static:
+    path: /responsable/inscription
+    controller: App\Controller\ResponsableInscriptionController::static
+    methods: [GET, POST]
+

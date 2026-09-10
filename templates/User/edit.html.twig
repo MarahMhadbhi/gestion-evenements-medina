@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>                                                                                                                                          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un nouvel Utilisateur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1976D2;
+            --dark-blue: #0D47A1;
+            --light-blue: #BBDEFB;
+            --background-white: #FFFFFF;
+            --text-dark: #333333;
+            --border-color: #E0E0E0;
+            --success-green: #4CAF50;
+            --error-red: #F44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #F5F9FC;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .form-container {
+            background-color: var(--background-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-header h1 {
+            font-weight: 600;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-content {
+            padding: 30px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-md-6 {
+            padding: 0 15px;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        .form-column {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+            background-color: white;
+        }
+
+        .invalid-feedback {
+            color: var(--error-red);
+            font-size: 14px;
+            margin-top: 6px;
+            display: block;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(25, 118, 210, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-blue);
+            transform: translateY(-2px);
+        }
+
+        .form-control.is-invalid {
+            border-color: var(--error-red);
+        }
+
+        .form-control.is-invalid:focus {
+            box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+        }
+    </style>
+</head>                                                                                                                                           <body>
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">                                                                                        <h1>Modifier l'utilisateur</h1>                                                                                                 </div>                                                                                                                                              <div class="form-content">                                                                                                                                                   {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-column">
+                        <div class="form-group">
+                            {{ form_label(form.nom, null, {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.nom) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.prenom, null, {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.prenom) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.email, null, {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.email) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-column">
+                        <div class="form-group">
+                            {{ form_label(form.telephone, null, {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.telephone) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.dateNaissance, null, {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.dateNaissance) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword, null, {
+                                'label_attr': {'class': 'form-label'},
+                                'label': 'Nouveau mot de passe'
+                            }) }}
+                            {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                            <span class="password-help">Laisser vide si inchangé</span>
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.plainPassword) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {# Nouvelle section pour le rôle #}
+                <div class="col-md-12">
+                    <div class="form-column">
+                        <div class="form-group">
+                            {{ form_label(form.role, 'Rôle', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(form.role) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i> Mettre à jour
+                </button>
+                <a href="{{ path('app_user_index') }}" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Retour à la liste
+                </a>
+            </div>
+        {{ form_end(form) }}
+         </div>
+    </div>
+</div>
+</body>
+</html>

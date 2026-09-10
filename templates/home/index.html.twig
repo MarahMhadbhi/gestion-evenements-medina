@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medina Group - Accueil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            max-height: 60px;
+        }
+        .banner {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .login-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .login-btn:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {# Logo par défaut avec lien vers l'accueil #}
+        <a href="{{ path('home') }}">
+             <img src="https://medinagroup.com.tn/lapaix/img/medina_logo.png" alt="Logo">
+        </a>
+        
+        
+    </header>
+
+    {# Bannière personnalisable - Remplacer l'URL #}
+    <div class="banner" style="background-image: url('https://i.pinimg.com/736x/00/71/f5/0071f5d7c8c3d788abcc67129994e653.jpg');"></div>
+
+    <div class="container">
+        {# Section About Us #}
+        <section id="about">
+            <h1>About Us</h1>
+            {# Éditez ce paragraphe selon vos besoins #}
+            <p>
+                Medina Group incarne l’excellence tunisienne dans la création d’expériences mémorables. Acteur majeur des secteurs hôtellerie, tourisme, MICE et loisirs, le groupe allie tradition et modernité pour offrir à ses hôtes des moments uniques
+                Hôtellerie Premium :
+                Six établissements prestigieux, dont la chaîne Medina Hotels & Resorts (Solaria 5* à Hammamet, Regency Gamarth à Tunis, et Baya Beach / 4 Saisons), réputés pour leur service d’exception.
+                Destinations iconiques:
+                Gestion de la Médina de Yasmine Hammamet et du plus grand centre de congrès de la région.
+                Loisirs innovants :
+                Leader des parcs à thème avec Carthage Land (Hammamet et Tunis).
+
+                Notre Mission :
+                Accueillir, divertir et inspirer en proposant une expérience authentique mêlant loisirs, découvertes, séjours et événements.
+
+                Notre Vision :
+                Devenir la référence incontournable dans l’art de créer des instants de bonheur pour tous.
+             </p>
+        </section>
+
+        {# Section Contact #}
+        <section id="contact">
+            <h1>Contact</h1>
+            {# Éditez ce paragraphe selon vos besoins #}
+            <p>
+                <strong>Téléphone :</strong>Tél : +216 72 241 000 <br>
+                <strong>Email :</strong> reservation@medina.com.tn<br>
+                <strong>Adresse :</strong> Rue de la médina,  Yasmine Hammamet 8050<br>
+               
+                pour des demandes spécifiques concernant nos hôtels, centres d'événements ou parcs d'attractions.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 Medina Group. Tous droits réservés.
+    </footer>
+</body>
+</html>
